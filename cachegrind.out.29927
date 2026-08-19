@@ -1,0 +1,172 @@
+cmd: ./actividad2.3
+events: Ir
+fl=???
+fn=(below main)
+0 84
+fn=???
+0 133389
+fn=_Exit
+0 5
+fn=_IO_default_xsputn
+0 231
+fn=_IO_do_write
+0 233
+fn=_IO_doallocbuf
+0 23
+fn=_IO_file_doallocate
+0 61
+fn=_IO_file_overflow
+0 484
+fn=_IO_file_setbuf
+0 18
+fn=_IO_file_stat
+0 3
+fn=_IO_file_sync
+0 21
+fn=_IO_file_write
+0 156
+fn=_IO_file_xsputn
+0 305
+fn=_IO_flush_all
+0 181
+fn=_IO_setb
+0 19
+fn=__call_tls_dtors
+0 13
+fn=__ctype_init
+0 17
+fn=__cxa_atexit
+0 40
+fn=__cxa_finalize
+0 116
+fn=__default_morecore
+0 20
+fn=__libc_early_init
+0 53
+fn=__memcpy_chk
+0 24
+fn=__memmove_chk
+0 24
+fn=__mempcpy_chk
+0 24
+fn=__memset_chk
+0 25
+fn=__sigsetjmp
+0 22
+fn=__tunable_get_val
+0 570
+fn=_dl_allocate_tls_init
+0 109
+fn=_dl_audit_preinit
+0 5
+fn=_dl_catch_exception
+0 132
+fn=_dl_debug_state
+0 4
+fn=_setjmp
+0 3
+fn=bcmp
+0 25
+fn=brk
+0 18
+fn=exit
+0 7
+fn=fstat
+0 6
+fn=geteuid
+0 4
+fn=getpid
+0 4
+fn=getppid
+0 4
+fn=getrlimit
+0 10
+fn=getuid
+0 4
+fn=index
+0 21
+fn=main
+0 34
+fn=malloc
+0 22
+fn=memchr
+0 21
+fn=memcpy
+0 24
+fn=memmove
+0 24
+fn=mempcpy
+0 24
+fn=memrchr
+0 25
+fn=memset
+0 25
+fn=printf
+0 128
+fn=pthread_mutex_lock
+0 38
+fn=pthread_mutex_unlock
+0 28
+fn=rindex
+0 25
+fn=sbrk
+0 50
+fn=stpcpy
+0 19
+fn=stpncpy
+0 21
+fn=strcasecmp
+0 22
+fn=strcasecmp_l
+0 22
+fn=strcat
+0 19
+fn=strchrnul
+0 25
+fn=strcmp
+0 20
+fn=strcpy
+0 19
+fn=strcspn
+0 7
+fn=strlen
+0 25
+fn=strncasecmp
+0 22
+fn=strncasecmp_l
+0 22
+fn=strncmp
+0 22
+fn=strncpy
+0 21
+fn=strnlen
+0 50
+fn=strpbrk
+0 7
+fn=strspn
+0 7
+fn=wcpncpy
+0 18
+fn=wcscat
+0 18
+fn=wcschr
+0 50
+fn=wcscmp
+0 25
+fn=wcscpy
+0 17
+fn=wcslen
+0 20
+fn=wcsncpy
+0 18
+fn=wcsnlen
+0 20
+fn=wmemchr
+0 42
+fn=wmemcmp
+0 25
+fn=wmemset
+0 38
+fn=write
+0 48
+summary: 137674
