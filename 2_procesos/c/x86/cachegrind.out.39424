@@ -1,22 +1,37 @@
-cmd: ./actividad2.3
+cmd: ./x86/program
 events: Ir
+fl=/home/herie/projects/concurrente/2_procesos/c/runner.c
+fn=main
+6 7
+9 4
+11 7
+12 7
+13 7
+14 7
+17 4
+20 4
+21 4
+22 12
+24 6
+26 1
+27 5
 fl=???
 fn=(below main)
 0 84
 fn=???
-0 133389
+0 136221
 fn=_Exit
 0 5
 fn=_IO_default_xsputn
 0 231
 fn=_IO_do_write
-0 233
+0 290
 fn=_IO_doallocbuf
 0 23
 fn=_IO_file_doallocate
 0 61
 fn=_IO_file_overflow
-0 484
+0 505
 fn=_IO_file_setbuf
 0 18
 fn=_IO_file_stat
@@ -24,9 +39,9 @@ fn=_IO_file_stat
 fn=_IO_file_sync
 0 21
 fn=_IO_file_write
-0 156
+0 195
 fn=_IO_file_xsputn
-0 305
+0 386
 fn=_IO_flush_all
 0 181
 fn=_IO_setb
@@ -69,6 +84,8 @@ fn=bcmp
 0 25
 fn=brk
 0 18
+fn=clock_gettime
+0 22
 fn=exit
 0 7
 fn=fstat
@@ -85,8 +102,6 @@ fn=getuid
 0 4
 fn=index
 0 21
-fn=main
-0 34
 fn=malloc
 0 22
 fn=memchr
@@ -102,7 +117,7 @@ fn=memrchr
 fn=memset
 0 25
 fn=printf
-0 128
+0 160
 fn=pthread_mutex_lock
 0 38
 fn=pthread_mutex_unlock
@@ -168,5 +183,5 @@ fn=wmemcmp
 fn=wmemset
 0 38
 fn=write
-0 48
-summary: 137674
+0 60
+summary: 140811

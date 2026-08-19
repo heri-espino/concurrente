@@ -1,2 +1,2 @@
-gcc -g primitivas.c runner.c -o actividad3.2
-valgrind --tool=cachegrind ./actividad3.2
+gcc -g primitivas.c runner.c -o x86/act2.3
+valgrind --tool=cachegrind ./x86/act2.3
