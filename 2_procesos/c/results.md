@@ -18,3 +18,24 @@ Tiempo de ejecucion: 6597 microsegundos
 ==39424== 
 ==39424== I refs:        140,811
 ```
+
+
+# arm
+
+```
+(base) heri@MacBook-Neo-de-heri c % gcc -g primitivas.c runner.c -o arm/program 
+(base) heri@MacBook-Neo-de-heri c % valgrind --tool=cachegrind ./arm/program
+==92054== Cachegrind, a high-precision tracing profiler
+==92054== Copyright (C) 2002-2025, and GNU GPL'd, by Nicholas Nethercote et al.
+==92054== Using Valgrind-3.28.0.GIT-lbmacos and LibVEX; rerun with -h for copyright info
+==92054== Command: ./arm/program
+==92054== 
+PID: 92054
+PPID: 78961
+UID: 501
+EUID: 501
+
+Tiempo de ejecucion: 10845 microsegundos
+==92054== 
+==92054== I refs:        11,678,746
+```
