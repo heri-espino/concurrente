@@ -1,0 +1,20 @@
+% !TEX root = ../Actividad2_Espino_Heriberto.tex
+% Select the discipline once; the template chooses a suitable bibliography
+% style. General or unknown disciplines fall back to APA. An explicit
+% style=... option can override the automatic choice when required.
+\usepackage[discipline=computer-science]{template/liverpoolthesis}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+
+\makeatletter
+% Sobreescritura del autómata lingüístico de babel.
+\addto\captionsspanish{%
+  \renewcommand{\chaptername}{Ejercicio}%
+  \renewcommand{\appendixname}{Anexo}%
+}
+\makeatother
+
+% Controls whether heading numbers are printed.
+\setcounter{secnumdepth}{2}
+\graphicspath{{figuras/}}

@@ -1,0 +1,135 @@
+% Archivo principal de compilación.
+% El contenido del reporte está en main.tex.
+\documentclass[12pt,oneside]{template/liverpoolthesis}
+\input{template/preamble}
+
+\begin{document}
+
+\input{template/portada}
+
+\chapter{Creación de un proceso en C}
+
+Desarrolla un programa que utilice \texttt{fork()} para crear un proceso hijo.
+El proceso padre deberá esperar al hijo utilizando \texttt{wait()}.
+
+
+En la \autoref{fig:fork-process}, el proceso hijo aparece primero porque el proceso padre ejecuta
+\texttt{wait(NULL)} inmediatamente después de \texttt{fork()}. Mientras el padre
+está bloqueado, el hijo imprime su mensaje, su PID y el PID de su padre, y termina.
+
+Cuando el hijo termina, \texttt{wait(NULL)} permite que el padre continúe y
+después imprima sus propios datos. Por eso, el orden es
+primero hijo y después padre. Además, el PPID que muestra el hijo coincide con el
+PID del padre, mientras que el PID que el padre muestra como \textit{PID de mi
+hijo} coincide con el PID del hijo.
+
+Si se elimina \texttt{wait()}, el proceso padre ya no espera explícitamente al
+hijo y ambos pueden imprimir sus mensajes en un orden diferente. El padre podría
+terminar antes que el hijo.
+Por lo
+tanto, \texttt{wait()} sincroniza al padre con el hijo.
+
+
+\incluirevidencia{1.png}{Código fuente y ejecución del proceso en C.}{fig:fork-process}
+
+\chapter{Creación de procesos en Java}
+
+Desarrolla un programa que use \texttt{ProcessBuilder} para iniciar un proceso
+hijo. 
+
+\incluirevidencia{6.png}{Código fuente y ejecución del proceso en Java con \texttt{ProcessBuilder}.}{fig:processbuilder-java}
+
+La \autoref{fig:processbuilder-java} muestra el código y la ejecución del
+proceso hijo iniciado mediante \texttt{ProcessBuilder}.
+
+\texttt{fork()} es una llamada POSIX que crea un proceso hijo como copia del
+proceso actual. Después de la llamada, padre e hijo continúan desde el mismo
+punto del programa, pero reciben valores de retorno distintos. En cambio,
+\texttt{ProcessBuilder} es una API de Java que configura y ejecuta un comando
+externo; no duplica directamente el estado de la JVM. Por esta razón,
+\texttt{ProcessBuilder} es una abstracción de más alto nivel y depende menos de
+detalles específicos de POSIX.
+
+\chapter{Creación de un hilo en C}
+
+Utiliza \texttt{pthread\_create()} para crear un hilo hijo.
+El hilo principal deberá esperar al hijo mediante \texttt{pthread\_join()}.
+
+\incluirevidencia{2.png}{Código fuente y ejecución del hilo en C.}{fig:pthread-c}
+
+La \autoref{fig:pthread-c} muestra la ejecución del hilo principal y del hilo
+hijo creado con \texttt{pthread\_create()}.
+
+En las ejecuciones realizadas se observó el mismo orden de los mensajes. Esto
+puede ocurrir porque el programa es muy pequeño, los ciclos terminan rápidamente
+y el sistema operativo suele tomar decisiones parecidas cuando la computadora
+se encuentra bajo una carga similar. Sin embargo, ese orden no está garantizado:
+el planificador decide qué hilo recibe tiempo de CPU en cada instante, por lo que
+los mensajes podrían intercalarse de otra manera bajo diferentes condiciones.
+La llamada \texttt{pthread\_join()} garantiza que el hilo principal espere la
+terminación del hilo hijo, pero no fija el orden en que ambos hilos imprimen sus
+mensajes.
+
+\chapter{Creación de un hilo en Java}
+
+Crea un hilo mediante la clase \texttt{Thread}.
+Ejecuta el programa varias veces y registra el orden de los mensajes.
+
+La salida mostrada en las \autoref{fig:thread-java-first} y
+\autoref{fig:thread-java-second} puede cambiar entre ejecuciones porque el hilo principal y el hilo secundario se
+ejecutan de manera concurrente. El planificador de la JVM y del sistema
+operativo puede alternar entre ambos en momentos diferentes en cada ejecución.
+La llamada \texttt{Thread.sleep()} pausa al hilo actual, pero no garantiza cuál
+hilo continuará primero al terminar la pausa. Por eso las líneas pueden
+aparecer en un orden distinto.
+
+
+\incluirevidencia{3.png}{Código fuente y ejecución del hilo en Java.}{fig:thread-java-first}
+
+\incluirevidencia{7.png}{Segunda ejecución del hilo en Java.}{fig:thread-java-second}
+
+
+\chapter{Múltiples hilos en Java}
+
+Crea tres hilos que representen las siguientes tareas:
+Asigna un nombre a cada hilo mediante \texttt{setName()} y muestra su nombre
+utilizando \texttt{Thread.currentThread().getName()}.
+
+El hilo principal deberá iniciar los tres hilos y esperar a que todos terminen
+utilizando \texttt{join()}.
+
+\incluirevidencia{5.png}{Código fuente y ejecución de los múltiples hilos en Java.}{fig:multiple-threads-java}
+
+La \autoref{fig:multiple-threads-java} muestra la ejecución concurrente de las
+tres tareas y los nombres asignados a sus hilos.
+
+El orden de las llamadas a \texttt{start()} no determina el orden en que
+los hilos reciben tiempo de CPU ni el orden en que terminan. Cada hilo puede
+avanzar a una velocidad diferente según el planificador y la carga del sistema.
+Las llamadas a \texttt{join()} solo garantizan que el hilo principal continúe
+cuando todos los hilos hayan terminado.
+
+\chapter{Comparación entre procesos e hilos en C y Java}
+
+Los procesos tienen un espacio de memoria independiente. Esto proporciona
+aislamiento entre programas, pero su creación y comunicación suele requerir
+más recursos. En C, \texttt{fork()} crea un proceso hijo a partir del proceso
+actual y \texttt{wait()} permite al padre esperar su terminación. En Java,
+\texttt{ProcessBuilder} inicia un programa externo y \texttt{waitFor()} espera
+su código de salida.
+
+Los hilos comparten la memoria de un mismo proceso. Por ello son más ligeros
+que los procesos y pueden comunicarse mediante variables compartidas, aunque
+requieren sincronización para evitar condiciones de carrera. En C, los hilos se
+crean con \texttt{pthread\_create()} y se esperan con
+\texttt{pthread\_join()}; en Java se usan \texttt{Thread}, \texttt{start()} y
+\texttt{join()}. En ambos lenguajes, el orden de ejecución no está garantizado
+porque depende del planificador.
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Referencias}
+\nocite{*}
+\bibliography{template/references}
+
+\end{document}
