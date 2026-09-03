@@ -9,8 +9,8 @@
 
 \chapter{Creación de un proceso en C}
 
-Desarrolla un programa que utilice \texttt{fork()} para crear un proceso hijo.
-El proceso padre deberá esperar al hijo utilizando \texttt{wait()}.
+\textbf{Desarrolla un programa que utilice \texttt{fork()} para crear un proceso hijo.
+El proceso padre deberá esperar al hijo utilizando \texttt{wait()}.}
 
 
 En la \autoref{fig:fork-process}, el proceso hijo aparece primero porque el proceso padre ejecuta
@@ -34,10 +34,8 @@ tanto, \texttt{wait()} sincroniza al padre con el hijo.
 
 \chapter{Creación de procesos en Java}
 
-Desarrolla un programa que use \texttt{ProcessBuilder} para iniciar un proceso
-hijo. 
-
-\incluirevidencia{6.png}{Código fuente y ejecución del proceso en Java con \texttt{ProcessBuilder}.}{fig:processbuilder-java}
+\textbf{Desarrolla un programa que use \texttt{ProcessBuilder} para iniciar un proceso
+hijo. }
 
 La \autoref{fig:processbuilder-java} muestra el código y la ejecución del
 proceso hijo iniciado mediante \texttt{ProcessBuilder}.
@@ -50,15 +48,18 @@ externo; no duplica directamente el estado de la JVM. Por esta razón,
 \texttt{ProcessBuilder} es una abstracción de más alto nivel y depende menos de
 detalles específicos de POSIX.
 
+\incluirevidencia{6.png}{Código fuente y ejecución del proceso en Java con \texttt{ProcessBuilder}.}{fig:processbuilder-java}
+
+
 \chapter{Creación de un hilo en C}
 
-Utiliza \texttt{pthread\_create()} para crear un hilo hijo.
+\textbf{Utiliza \texttt{pthread\_create()} para crear un hilo hijo.
 El hilo principal deberá esperar al hijo mediante \texttt{pthread\_join()}.
-
-\incluirevidencia{2.png}{Código fuente y ejecución del hilo en C.}{fig:pthread-c}
+}
 
 La \autoref{fig:pthread-c} muestra la ejecución del hilo principal y del hilo
 hijo creado con \texttt{pthread\_create()}.
+\incluirevidencia{2.png}{Código fuente y ejecución del hilo en C.}{fig:pthread-c}
 
 En las ejecuciones realizadas se observó el mismo orden de los mensajes. Esto
 puede ocurrir porque el programa es muy pequeño, los ciclos terminan rápidamente
@@ -70,10 +71,12 @@ La llamada \texttt{pthread\_join()} garantiza que el hilo principal espere la
 terminación del hilo hijo, pero no fija el orden en que ambos hilos imprimen sus
 mensajes.
 
+
+
 \chapter{Creación de un hilo en Java}
 
-Crea un hilo mediante la clase \texttt{Thread}.
-Ejecuta el programa varias veces y registra el orden de los mensajes.
+\textbf{Crea un hilo mediante la clase \texttt{Thread}.
+Ejecuta el programa varias veces y registra el orden de los mensajes.}
 
 La salida mostrada en las \autoref{fig:thread-java-first} y
 \autoref{fig:thread-java-second} puede cambiar entre ejecuciones porque el hilo principal y el hilo secundario se
@@ -91,9 +94,9 @@ aparecer en un orden distinto.
 
 \chapter{Múltiples hilos en Java}
 
-Crea tres hilos que representen las siguientes tareas:
+\textbf{Crea tres hilos que representen las siguientes tareas:
 Asigna un nombre a cada hilo mediante \texttt{setName()} y muestra su nombre
-utilizando \texttt{Thread.currentThread().getName()}.
+utilizando \texttt{Thread.currentThread().getName()}.}
 
 El hilo principal deberá iniciar los tres hilos y esperar a que todos terminen
 utilizando \texttt{join()}.

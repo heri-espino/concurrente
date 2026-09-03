@@ -1,0 +1,357 @@
+% Reporte de la Actividad 3.
+% La plantilla compartida conserva el formato de las actividades anteriores.
+\documentclass[12pt,oneside]{template/liverpoolthesis}
+\input{template/preamble}
+
+% ---------- Datos de esta actividad ----------
+\title{Actividad 3: Programación secuencial en Java}
+\author{%
+  Heriberto Espino Montelongo\\
+  ID: 175199\\[1em]
+  \text{Profesor:} Dr. Victor Giovanni Morales Murillo}
+\faculty{Universidad de las Américas Puebla (UDLAP)}
+\school{Licenciatura en Ciencia de Datos}
+\degree{Curso: Programación Concurrente}
+\date{Fecha de entrega: 3 de septiembre de 2026}
+\subject{Programación secuencial en Java}
+
+% Inserta la evidencia visual correspondiente a cada ejercicio.
+\newcommand{\evidenciaejercicio}[3]{%
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.92\textwidth,height=0.58\textheight,keepaspectratio]{#1}
+    \caption{#2}
+    \label{#3}
+  \end{figure}%
+}
+
+\begin{document}
+
+% Se conserva la estructura de portada, índices y lista de figuras.
+\frontmatter
+\maketitle
+\tableofcontents
+\listoffigures
+
+\begin{abbreviations}
+  \item[API] \textit{Application Programming Interface}: interfaz de programación
+  de aplicaciones.
+  \item[CPU] \textit{Central Processing Unit}: unidad central de procesamiento.
+  \item[JDK] \textit{Java Development Kit}: conjunto de herramientas para
+  desarrollar programas en Java.
+\end{abbreviations}
+
+\mainmatter
+
+\chapter{Conversión de temperatura}
+
+\textbf{Solicita una temperatura en grados Celsius y conviértela a Fahrenheit.}
+
+\[
+  F = (C \times 1.8) + 32
+\]
+
+\emph{Entradas.} Una temperatura real expresada en grados Celsius.
+
+\emph{Procesamiento.} Se multiplica la temperatura Celsius por $1.8$ y se suma
+$32$ para obtener la temperatura Fahrenheit.
+
+\emph{Salidas.} La temperatura original y su equivalente en grados Fahrenheit,
+mostradas con dos decimales.
+
+\emph{Estructuras de control utilizadas.} Secuencia de instrucciones y una
+condicional para validar que la entrada tenga formato numérico.
+
+\emph{Conceptos.} Una variable almacena un dato que puede utilizarse durante
+el procesamiento. La entrada se obtiene mediante \texttt{Scanner}; la operación
+aritmética aplica la fórmula de conversión; y la salida comunica el resultado.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item $25$ grados Celsius produce $77$ grados Fahrenheit.
+  \item $-40$ grados Celsius produce $-40$ grados Fahrenheit.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio01.png}{Código fuente y captura de ejecución de la conversión de temperatura.}{fig:ejercicio01}
+
+\chapter{Área y perímetro de un rectángulo}
+
+\textbf{Solicita la base y la altura de un rectángulo. Calcula y muestra su área y su perímetro.}
+
+\[
+  \text{Área} = \text{base} \times \text{altura}
+\]
+\[
+  \text{Perímetro} = 2(\text{base} + \text{altura})
+\]
+
+\emph{Entradas.} La base y la altura del rectángulo, expresadas como números
+reales no negativos.
+
+\emph{Procesamiento.} Se multiplican la base y la altura para calcular el área;
+después se duplica la suma de ambas dimensiones para calcular el perímetro.
+
+\emph{Salidas.} El área y el perímetro calculados, con dos decimales.
+
+\emph{Estructuras de control utilizadas.} Secuencia de instrucciones y una
+condicional para validar el tipo de dato y que las dimensiones no sean negativas.
+
+\emph{Conceptos.} La secuencia ejecuta las operaciones en el orden indicado.
+La reutilización de datos permite usar la misma base y altura en dos fórmulas
+distintas sin volver a solicitarlas.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item Base $5$ y altura $3$: área $15$ y perímetro $16$.
+  \item Base $8$ y altura $2$: área $16$ y perímetro $20$.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio02.png}{Código fuente y captura de ejecución del área y perímetro de un rectángulo.}{fig:ejercicio02}
+
+\chapter{Promedio y aprobación}
+
+\textbf{Solicita tres calificaciones, calcula su promedio e indica si el estudiante está aprobado cuando el promedio es mayor o igual que 6, o reprobado cuando es menor que 6.}
+
+\emph{Entradas.} Tres calificaciones reales en el intervalo de $0$ a $10$.
+
+\emph{Procesamiento.} Se suman las tres calificaciones y se divide el resultado
+entre $3$. Después se compara el promedio con el valor mínimo de aprobación, $6$.
+
+\emph{Salidas.} El promedio calculado y el estado del estudiante: aprobado o
+reprobado.
+
+\emph{Estructuras de control utilizadas.} Secuencia de instrucciones y una
+condicional ternaria para seleccionar el estado; también se usa una condicional
+para validar el intervalo de las calificaciones.
+
+\emph{Conceptos.} La entrada proporciona los datos que serán procesados. El
+promedio es una operación aritmética y la estructura \texttt{if-else} permite
+tomar una decisión según una condición.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item Calificaciones $8$, $7$ y $9$: promedio $8.00$, aprobado.
+  \item Calificaciones $5$, $5$ y $6$: promedio $5.33$, reprobado.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio03.png}{Código fuente y captura de ejecución del promedio y la aprobación.}{fig:ejercicio03}
+
+\chapter{Clasificación de un número}
+
+\textbf{Solicita un número entero y determina si es positivo, negativo o cero, y si es par o impar. Considera que el cero es un número par.}
+
+\emph{Entradas.} Un número entero.
+
+\emph{Procesamiento.} Se compara el número con cero para clasificar su signo.
+Después se calcula el residuo de la división entre $2$; si el residuo es cero,
+el número es par, incluido el caso del cero.
+
+\emph{Salidas.} Una descripción que indique el signo y la paridad del número.
+
+\emph{Estructuras de control utilizadas.} Condicionales \texttt{if-else if-else}
+para el signo y una condicional ternaria para la paridad.
+
+\emph{Conceptos.} Los operadores relacionales comparan el número con cero.
+El operador módulo obtiene el residuo de una división entera y permite distinguir
+entre números pares e impares.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item Entrada $5$: número positivo e impar.
+  \item Entrada $-8$: número negativo y par.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio04.png}{Código fuente y captura de ejecución de la clasificación de un número.}{fig:ejercicio04}
+
+\chapter{Calculadora básica}
+
+\textbf{Solicita dos números y una operación: 1) suma, 2) resta, 3) multiplicación o 4) división. Realiza la operación seleccionada y muestra el resultado; en la división, verifica que el segundo número no sea cero.}
+
+\emph{Entradas.} Dos números reales y una opción entera entre $1$ y $4$.
+
+\emph{Procesamiento.} La opción seleccionada determina la operación. Antes de
+dividir se comprueba que el segundo número sea distinto de cero.
+
+\emph{Salidas.} El resultado de la suma, resta, multiplicación o división, o un
+mensaje claro cuando la opción o el divisor no son válidos.
+
+\emph{Estructuras de control utilizadas.} La estructura \texttt{switch} selecciona
+la operación y una condicional valida la división entre cero y las opciones
+fuera del intervalo permitido.
+
+\emph{Conceptos.} \texttt{switch} permite elegir entre varios casos discretos.
+La validación evita realizar una operación no definida y las operaciones
+aritméticas producen el resultado solicitado.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item Números $8$ y $2$, opción $1$: resultado $10.00$.
+  \item Números $9$ y $3$, opción $4$: resultado $3.00$.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio05.png}{Código fuente y captura de ejecución de la calculadora básica.}{fig:ejercicio05}
+
+\chapter{Tabla de multiplicar}
+
+\textbf{Solicita un número entero y muestra su tabla de multiplicar del 1 al 10.}
+
+\emph{Entradas.} Un número entero.
+
+\emph{Procesamiento.} Se multiplica el número recibido por cada multiplicador
+entero desde $1$ hasta $10$.
+
+\emph{Salidas.} Diez líneas con las multiplicaciones y sus resultados.
+
+\emph{Estructuras de control utilizadas.} Un ciclo \texttt{for} con un contador
+que inicia en $1$, termina en $10$ y aumenta de uno en uno.
+
+\emph{Conceptos.} El ciclo \texttt{for} automatiza una operación repetitiva. El
+contador identifica cada multiplicador y la salida repetitiva muestra cada
+resultado en una línea diferente.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item Entrada $4$: la tabla inicia con $4 \times 1 = 4$ y termina con $4 \times 10 = 40$.
+  \item Entrada $-3$: la tabla inicia con $-3 \times 1 = -3$ y termina con $-3 \times 10 = -30$.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio06.png}{Código fuente y captura de ejecución de la tabla de multiplicar.}{fig:ejercicio06}
+
+\chapter{Suma y promedio de varios números}
+
+\textbf{Solicita cuántos números se introducirán. Después, lee los números y calcula la suma, el promedio, el número mayor y el número menor. Valida que la cantidad de números sea mayor que cero.}
+
+\emph{Entradas.} Una cantidad entera mayor que cero y esa cantidad de números
+reales.
+
+\emph{Procesamiento.} Se recorre cada número, se acumula la suma y se comparan
+los valores para actualizar el mayor y el menor. Al finalizar se divide la suma
+entre la cantidad para obtener el promedio.
+
+\emph{Salidas.} La suma, el promedio, el número mayor y el número menor.
+
+\emph{Estructuras de control utilizadas.} Un ciclo \texttt{for} para leer los
+datos y condicionales para inicializar y actualizar los extremos. También se
+usa una condicional para validar la cantidad.
+
+\emph{Conceptos.} Un acumulador conserva la suma parcial. Las comparaciones
+permiten obtener extremos y la validación evita una cantidad cero que produciría
+una división inválida.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item Números $3$, $-2$, $9$ y $1$: suma $11$, promedio $2.75$, mayor $9$ y menor $-2$.
+  \item Números $5$ y $5$: suma $10$, promedio $5.00$, mayor $5$ y menor $5$.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio07.png}{Código fuente y captura de ejecución de la suma y promedio de varios números.}{fig:ejercicio07}
+
+\chapter{Análisis de un arreglo}
+
+\textbf{Solicita el tamaño de un arreglo y sus elementos. Al finalizar, muestra la suma, el promedio, la cantidad de números positivos, negativos y ceros, y la cantidad de números pares e impares.}
+
+\emph{Entradas.} Un tamaño entero mayor que cero y los elementos enteros del
+arreglo.
+
+\emph{Procesamiento.} Se almacenan los elementos en un arreglo y se realiza un
+recorrido. Durante el recorrido se acumula la suma y se incrementan contadores
+según el signo y la paridad de cada elemento.
+
+\emph{Salidas.} La suma, el promedio, las cantidades de positivos, negativos,
+ceros, pares e impares.
+
+\emph{Estructuras de control utilizadas.} Un ciclo \texttt{for} para recorrer el
+arreglo y condicionales anidadas para clasificar cada elemento.
+
+\emph{Conceptos.} Un arreglo almacena varios valores del mismo tipo. Un
+recorrido visita cada posición mediante un índice. Los contadores registran
+categorías y el acumulador conserva la suma.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item Arreglo $[3,-2,0,4]$: suma $5$, promedio $1.25$, positivos $2$,
+  negativos $1$, ceros $1$, pares $3$ e impares $1$.
+  \item Arreglo $[1,1,-1]$: suma $1$, promedio $0.33$, positivos $2$,
+  negativos $1$, ceros $0$, pares $0$ e impares $3$.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio08.png}{Código fuente y captura de ejecución del análisis de un arreglo.}{fig:ejercicio08}
+
+\chapter{Búsqueda secuencial}
+
+\textbf{Solicita el tamaño de un arreglo, sus elementos y un número que se desea buscar. Recorre el arreglo y muestra las posiciones donde aparece el número, la cantidad total de apariciones y un mensaje si el número no se encuentra. No utiliza métodos de búsqueda proporcionados por Java.}
+
+\emph{Entradas.} Un tamaño entero mayor que cero, los elementos enteros del
+arreglo y el número entero que se buscará.
+
+\emph{Procesamiento.} Se recorre el arreglo desde la primera hasta la última
+posición. Cada elemento se compara directamente con el valor buscado; cuando
+coincide, se guarda su índice y se incrementa el contador de apariciones.
+
+\emph{Salidas.} Los índices donde aparece el valor, el total de apariciones o
+un mensaje que indique que no se encontró.
+
+\emph{Estructuras de control utilizadas.} Un ciclo \texttt{for} para el recorrido
+y condicionales para comparar, contar coincidencias y seleccionar el mensaje
+final.
+
+\emph{Conceptos.} La búsqueda secuencial revisa los elementos en orden y usa
+índices para identificar sus posiciones. El programa no usa métodos de búsqueda
+de la biblioteca de Java.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item Arreglo $[4,2,4,7,4]$ y búsqueda de $4$: posiciones $0$, $2$ y $4$;
+  total de apariciones $3$.
+  \item Arreglo $[1,3,5]$ y búsqueda de $2$: mensaje de número no encontrado.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio09.png}{Código fuente y captura de ejecución de la búsqueda secuencial.}{fig:ejercicio09}
+
+\chapter{Sistema de calificaciones}
+
+\textbf{Desarrolla un programa para registrar las calificaciones de varios estudiantes. Debe solicitar la cantidad de estudiantes, solicitar tres calificaciones por estudiante, calcular el promedio individual, indicar si aprobó o reprobó, calcular el promedio general, mostrar el promedio más alto y más bajo, contar aprobados y reprobados, y mostrar el porcentaje de aprobación. Organiza el programa utilizando los métodos \texttt{static double calcularPromedio(double c1, double c2, double c3)} y \texttt{static boolean estaAprobado(double promedio)}.}
+
+\[
+  \text{Porcentaje} = \frac{\text{aprobados}}{\text{total de estudiantes}} \times 100
+\]
+
+\emph{Entradas.} La cantidad de estudiantes y tres calificaciones reales entre
+$0$ y $10$ para cada estudiante.
+
+\emph{Procesamiento.} Para cada estudiante se calcula el promedio individual y
+se determina su estado. A la vez se acumulan los promedios, se actualizan los
+valores mayor y menor y se cuentan los aprobados. Al final se calculan el
+promedio general, los reprobados y el porcentaje de aprobación.
+
+\emph{Salidas.} El promedio y estado de cada estudiante, el promedio general,
+los promedios máximo y mínimo, las cantidades de aprobados y reprobados y el
+porcentaje de aprobación.
+
+\emph{Estructuras de control utilizadas.} Un ciclo \texttt{for} recorre a los
+estudiantes; condicionales actualizan extremos y contadores; y un ciclo
+\texttt{while} valida cada calificación. Los métodos separan el cálculo del
+promedio y la decisión de aprobación.
+
+\emph{Conceptos.} Los métodos encapsulan responsabilidades específicas. Los
+acumuladores reúnen promedios, los contadores reúnen categorías y la
+descomposición de problemas divide el sistema en lectura, cálculo y reporte.
+
+\emph{Casos de prueba.}
+\begin{itemize}
+  \item Dos estudiantes: $(8,9,10)$ y $(5,6,4)$. Resultados: promedios $9.00$
+  y $5.00$, promedio general $7.00$, un aprobado, un reprobado y $50\%$ de
+  aprobación.
+  \item Un estudiante con $(6,6,6)$. Resultado: promedio general, mayor y
+  menor de $6.00$, aprobado y $100\%$ de aprobación.
+\end{itemize}
+
+\evidenciaejercicio{ejercicio10.png}{Código fuente y captura de ejecución del sistema de calificaciones.}{fig:ejercicio10}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Referencias}
+\nocite{*}
+\bibliography{template/references}
+
+\end{document}
